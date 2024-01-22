@@ -4,49 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        function getComputerChoice() {
-            let rps = ["Rock", "Paper", "Scissors"]
-            let random = Math.floor((Math.random() * rps.length));
-            let randomChoice = rps[random]
-            return randomChoice;
-        }
-        let computerScore = 0;
-        let playerScore = 0;
-        let result = ""
-
-        function game() {
-            let gameCount = 0;
-                while (gameCount < 5) {
-                    const playerChoice = prompt("Choose Rock, Paper or Scissors");
-                    const playerSelection = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
-                    const computerSelection = getComputerChoice();
-                    console.log(playerSelection);
-                    console.log(computerSelection)
-                    if (playerSelection == "rock" && computerSelection == "Paper" || playerSelection == "paper" && computerSelection == "Scissors" || playerSelection == "scissors" && computerSelection == "Rock") {
-                    result = ('You Lose! ' + computerSelection + ' beats ' + playerSelection + '!')
-                    computerScore++
-                    } else if (playerSelection == computerSelection) {
-                        result = ('It\'s a tie! You both chose ' + playerSelection + '!')
-                    } else {
-                        result = ('You Win! ' + playerSelection + ' beats ' + computerSelection + '!')
-                        playerScore++
-                    }
-                    if (!result.includes("tie")) {
-                        gameCount++
-                    }
-                    console.log(result)
-                }
-                if (playerScore < computerScore) {
-                    alert("You lose!")
-                } else {
-                    alert("You win!")
-                }
-                return result;
-        }
-        game()
-    </script>
+    <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div id="result"></div>
 </body>
 </html>
